@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+string longestCommonPrefix(vector<string>& strs) {
+    if (strs.empty()) return "";
+
+    // Start with the first string as initial prefix
+    string prefix = strs[0];
+
+    // Compare current prefix with each string in array
+    for (int i = 1; i < strs.size(); i++) {
+        // Narrow down the prefix with each comparison
+        while (strs[i].find(prefix) != 0) {
+            // Shorten the prefix by one character from the end
+            prefix = prefix.substr(0, prefix.length() - 1);
+            // If prefix becomes empty, no common prefix exists
+            if (prefix.empty()) return "";
+        }
+    }
+
+    return prefix;
+}
+
+// Example usage
+int main() {
+    vector<string> strs = {"flower", "flow", "flight"};
+    cout << longestCommonPrefix(strs) << endl; // Output: "fl"
+    return 0;
+}
+

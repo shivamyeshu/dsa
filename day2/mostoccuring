@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+// count no of occurance 
+int main(){
+    vector <int> nums = {1,2,3,0,10,3,2,2,1,1,1,1};
+
+    unordered_map<int , int> mp;
+    for (int num : nums) {
+        mp[num]++;
+    }
+
+    for(auto it : mp){
+        cout << "no" << it.first << "name" <<it.second << endl;
+    }
+
+    
+    return 0;
+}
